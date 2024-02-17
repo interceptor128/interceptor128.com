@@ -8,3 +8,9 @@
 - lume 2.30以降
 
 詳細は、[lume](https://lume.land)を参照すること。
+
+## ビルド
+
+```sh
+deno build task
+```
