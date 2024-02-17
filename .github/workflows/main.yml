@@ -1,23 +1,30 @@
 name: action
 on:
   push:
-    branches:
-      - main()
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     name: deno build and FTP Upload
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
+          
       - name: Build with Lume
         run: deno task build
+        
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -25,3 +32,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./public/
