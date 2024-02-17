@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+$font-stack-body: 'Roboto', sans-serif;
+$font-stack-heading: 'Noto Sans JP', cursive;
+$primary-color: #3b4675;
+$secondary-color: #4e5c9b;
+$tertiary-color: #3498db;
+$text-color: #2c3e50;
+$background-color: #ecf0f1;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+body {
+  font-family: $font-stack-body;
+  background-color: $background-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(to right, $primary-color, $secondary-color);
+  color: white;
+  padding: 6px;
+
+  h1 {
+    font-family: $font-stack-heading;
+    font-size: 2em;
+  }
+}
+
+article {
+  margin: 10px;
+  padding: 15px;
+  background-color: white;
+  @include border-radius(10px);
+
+  h2 {
+    color: $tertiary-color;
+    font-family: $font-stack-heading;
+  }
+
+  img {
+    width: max-content;
+    height: max-content;
+  }
+}
+
+footer {
+  background: linear-gradient(to left, $secondary-color, $primary-color);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+}
